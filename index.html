@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="todocontainer">
+        <div class="header">
+            <h1>Elijah Lategan</h1>
+            <h2>To Do list</h2>
+        </div>
+        <div class="box">
+            <p>Welcome back! 👋
+            Ready to get things done today? Add your tasks, stay organized, and make today a productive one.
+            </p>
+        </div>
+        <div class="addbtn">
+            <button id="createbtn">+ Add Task</button>
+        </div>
+
+
+        
+        <div id="taskop" class="taskmodel">
+            <h2>Add your task</h2>
+
+            <input type="text" placeholder="Enter your task" id="taskinput">
+
+            <input type="time" id="tasktime">
+
+            <div class="btn-container">
+                <button id="addbtn" onclick="addtolist()">Add to List</button>
+                <button id="cancelbtn">Cancel</button>
+            </div>
+        </div>
+
+
+
+        <div id="displayarea">
+            <p>Tasks will appear here</p>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

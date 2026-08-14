@@ -1,0 +1,203 @@
+body {
+    background: crimson;
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.todocontainer {
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.header {
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.box {
+    text-align: center;
+    word-spacing: 2px;
+    padding: 50px;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+/* input {
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 1000px;
+    height: 25px;
+} */
+
+#addbtn {
+    justify-content: center;
+    padding: 10px 15px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(157, 7, 37);
+}
+
+#addbtn:hover {
+    cursor: pointer;
+    background-color: rgb(179, 10, 44);
+}
+
+#displayarea {
+    color: white;
+    width: 70%;
+    margin: 40px auto;
+    min-height: 300px;
+    /* background: white; */
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+
+@media (max-width: 600px) {
+    .box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    #addbtn {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+
+/* ============================== */
+/*           task card            */
+/* ============================== */
+
+
+.task-card {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 12px 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.complete-btn{
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.complete-btn :hover{
+    background-color: #0a601e;
+}
+
+.delete-btn :hover{
+    background: #86131f;
+}
+
+.delete-btn{
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.7;
+}
+
+#taskinput{
+    border: none;
+    outline: none;
+}
+
+
+
+/* =============================== */
+
+#cancelbtn {
+    padding: 10px 15px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(157, 7, 37);
+}
+
+#createbtn {
+    padding: 10px 15px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(157, 7, 37);
+
+}
+
+#taskop {
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+}
+
+.taskmodel {
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    padding:25px;
+    border-radius:10px;
+    width:350px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    padding:10px;
+    font-size:16px;
+}
+
+.btn-container {
+    gap: 10px;
+    display:flex;
+    justify-content:space-between;
+}
+
