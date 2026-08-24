@@ -94,7 +94,7 @@ body {
     margin: 12px 0;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 
@@ -179,7 +179,6 @@ body {
 }
 
 .taskmodel {
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
     padding:25px;
     border-radius:10px;
     width:350px;

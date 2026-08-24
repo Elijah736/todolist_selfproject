@@ -16,7 +16,7 @@ cancel.addEventListener("click", () => {
     taskinput.value = "";
     tasktime.value = "";
     model.style.display = "none";
-})
+});
 
 
 
@@ -28,7 +28,7 @@ addbtn.addEventListener("click", function () {
         return;
     }
 
-   const card = document.createElement("div");
+    const card = document.createElement("div");
     card.classList.add("task-card");
 
     const taskText = document.createElement("p");
