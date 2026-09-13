@@ -179,6 +179,8 @@ body {
 }
 
 .taskmodel {
+    text-align: center;
+    justify-content: center;
     padding:25px;
     border-radius:10px;
     width:350px;
