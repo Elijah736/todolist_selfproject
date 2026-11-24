@@ -1,3 +1,12 @@
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+}
+
+
+
+
 const taskinput = document.getElementById("taskinput");
 const addbtn = document.getElementById("addbtn");
 const displayarea = document.getElementById("displayarea");
@@ -18,53 +27,116 @@ cancel.addEventListener("click", () => {
     model.style.display = "none";
 });
 
-
-
-
-
 addbtn.addEventListener("click", function () {
+
     const text = taskinput.value;
+    const time = tasktime.value;
+
     if (text.trim() === "") {
         return;
     }
 
-    const card = document.createElement("div");
-    card.classList.add("task-card");
+    const newTask = {
+        id: Date.now(),
+        text: text,
+        time: time,
+        priority: taskpriority.value, 
+        completed: false
+    };
 
-    const taskText = document.createElement("p");
-    taskText.textContent = text;
+    tasks.push(newTask);
 
-    const buttonContainer = document.createElement("div");
-    buttonContainer.classList.add("buttons");
+    saveTasks();
 
+    taskinput.value = "";
+    tasktime.value = "";
 
-// This is the complete and delete buttons
+    model.style.display = "none";
 
-
-    const completeBtn = document.createElement("button");
-    completeBtn.classList.add("complete-btn");
-    completeBtn.textContent = "✓ Complete";
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("delete-btn");
-    deleteBtn.textContent = "🗑 Delete";
-
-
-    buttonContainer.appendChild(completeBtn);
-    buttonContainer.appendChild(deleteBtn);
-
-    deleteBtn.addEventListener("click", function () {
-    card.remove();});
-
-    completeBtn.addEventListener("click", function () {
-    taskText.classList.toggle("completed");});
-
-
-//==================================================
-
-    // Add text and buttons to card
-    card.appendChild(taskText);
-    card.appendChild(buttonContainer);
-
-    displayarea.appendChild(card);
+    renderTasks();
 });
+
+
+
+
+
+
+
+function renderTasks() {
+
+    displayarea.innerHTML = "";
+
+    tasks.forEach(function(task) {
+
+        const card = document.createElement("div");
+        card.classList.add("task-card");
+
+        const taskText = document.createElement("p");
+
+        taskText.textContent = task.text;
+
+        if (task.completed) {
+            taskText.classList.add("completed");
+        }
+
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("buttons");
+
+        const completeBtn = document.createElement("button");
+        completeBtn.textContent = "✓ Complete";
+        completeBtn.classList.add("complete-btn");
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "🗑 Delete";
+        deleteBtn.classList.add("delete-btn");
+
+        completeBtn.addEventListener("click", function() {
+
+            task.completed = !task.completed;
+
+            saveTasks();
+            renderTasks();
+
+        });
+
+        deleteBtn.addEventListener("click", function() {
+
+            tasks = tasks.filter(function(item) {
+                return item.id !== task.id;
+            });
+
+            saveTasks();
+            renderTasks();
+
+        });
+
+        buttonContainer.appendChild(completeBtn);
+        buttonContainer.appendChild(deleteBtn);
+
+        card.appendChild(taskText);
+
+        if (task.time) {
+            const taskTime = document.createElement("span");
+            taskTime.textContent = task.time;
+            card.appendChild(taskTime);
+        }
+
+        card.appendChild(buttonContainer);
+
+        displayarea.appendChild(card);
+
+        
+        const priorityBadge = document.createElement("span");
+        const taskpriority = document.getElementById("taskpriority");
+
+        priorityBadge.textContent = taskpriority;
+        priorityBadge.classList.add("priorityBadge", taskpriority.toLowerCase());
+
+        card.append(taskText);
+        card.append(priorityBadge);
+        card.append(buttonContainer);
+    });
+}
+
+
+renderTasks()

@@ -167,38 +167,135 @@ body {
 
 }
 
-#taskop {
-    display:none;
-    position:fixed;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    justify-content:center;
-    align-items:center;
-}
-
-.taskmodel {
-    text-align: center;
+/* Dark background behind the modal */
+.task-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
     justify-content: center;
-    padding:25px;
-    border-radius:10px;
-    width:350px;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
 }
 
-input {
-    border: none;
-    border-radius: 5px;
-    padding:10px;
-    font-size:16px;
+/* The actual modal */
+.task-model {
+    background: #ffffff;
+    color: #222;
+    width: 420px;
+    max-width: 100%;
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    animation: modalAppear 0.25s ease;
 }
 
-.btn-container {
+.task-model h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #8b0000;
+}
+
+.modal-description {
+    margin: 0 0 10px;
+    color: #777;
+    font-size: 14px;
+}
+
+.task-model label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.task-model input,
+.task-model select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.task-model input:focus,
+.task-model select:focus {
+    border-color: #8b0000;
+    box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+}
+
+.modal-buttons {
+    display: flex;
     gap: 10px;
-    display:flex;
-    justify-content:space-between;
+    margin-top: 12px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+}
+
+#addbtn {
+    background: #8b0000;
+    color: white;
+}
+
+#addbtn:hover {
+    background: #650000;
+}
+
+#cancelbtn {
+    background: #eeeeee;
+    color: #333;
+}
+
+#cancelbtn:hover {
+    background: #dddddd;
+}
+
+
+.priority-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.priority-badge.low {
+    background: #d9f5df;
+    color: #187333;
+}
+
+.priority-badge.medium {
+    background: #fff0c2;
+    color: #8a5b00;
+}
+
+.priority-badge.high {
+    background: #ffe0e0;
+    color: #b00020;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 

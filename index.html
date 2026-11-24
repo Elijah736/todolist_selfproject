@@ -26,18 +26,34 @@
 
 
         
-        <div id="taskop" class="taskmodel">
-            <h2>Add your task</h2>
+    <div id="taskop" class="task-overlay">
+        <div class="task-model">
+            <h2>Add a New Task</h2>
+            <p class="modal-description">What would you like to get done?</p>
 
-            <input type="text" placeholder="Enter your task" id="taskinput">
+            <label for="taskinput">Task name</label>
+            <input
+                type="text"
+                id="taskinput"
+                placeholder="e.g. Complete my JavaScript project"
+            >
 
+            <label for="tasktime">Task time</label>
             <input type="time" id="tasktime">
 
-            <div class="btn-container">
-                <button id="addbtn" onclick="addtolist()">Add to List</button>
+            <label for="taskpriority">Priority</label>
+            <select id="taskpriority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+            </select>
+
+            <div class="modal-buttons">
+                <button id="addbtn">Add Task</button>
                 <button id="cancelbtn">Cancel</button>
             </div>
         </div>
+    </div>
 
 
 
